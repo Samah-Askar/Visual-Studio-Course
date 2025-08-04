@@ -1,0 +1,90 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Vibe Lounge";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Vibe Lounge - Music for the Soul</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e1e2f, #3f3f5f);
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            font-size: 3rem;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff0099;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @@keyframes glow {
+            from {
+                text-shadow: 0 0 5px #ff33cc, 0 0 10px #ff33cc, 0 0 15px #ff33cc;
+            }
+            to {
+                text-shadow: 0 0 20px #ff33cc, 0 0 30px #ff33cc, 0 0 40px #ff33cc;
+            }
+        }
+
+        .video-container {
+            position: relative;
+            width: 90%;
+            max-width: 720px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <header id="animatedHeader">✨ Vibe Lounge ✨</header>
+
+    <div class="video-container">
+        <!-- Replace VIDEO_ID with a real music video ID -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/HhZaHf8RP6g?si=kEvA8glUjut7j4mZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <footer>
+        Bringing the vibes, one beat at a time.
+    </footer>
+
+    <script>
+        // JavaScript wave animation effect for header
+        const header = document.getElementById("animatedHeader");
+        let angle = 0;
+
+        setInterval(() => {
+            const offset = Math.sin(angle) * 5;
+            header.style.transform = `translateY(${offset}px)`;
+            angle += 0.1;
+        }, 30);
+    </script>
+</body>
+</html>
